@@ -1,3 +1,23 @@
+<?php
+session_start(); // Memulai sesi
+include "koneksi.php"; // Menyertakan file koneksi database
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+  header("Location: login.php"); // Arahkan ke halaman login jika belum login
+  exit; // Menghentikan script
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+  echo "<script>
+        alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+        window.location.href='login.php'; // Arahkan ke halaman login
+    </script>";
+  exit; // Menghentikan script
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +82,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Mirzaa</h6>
+              <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars(($_SESSION['username'])) : 'Guest'; ?></h6>
               <span>Admin</span>
             </li>
             <li>
@@ -73,7 +93,8 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="logout.php">
+                <i class="bi bi-box-arrow-in-right"></i>
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -102,21 +123,21 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori.php">
-        <i class="bi bi-alexa"></i>
+          <i class="bi bi-alexa"></i>
           <span>Kategori Produk</span>
         </a>
       </li><!-- End kategori Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
-        <i class="bi bi-bag"></i>
+          <i class="bi bi-bag"></i>
           <span>Produk</span>
         </a>
       </li><!-- End produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="keranjang.php">
-        <i class="bi bi-bag-plus"></i>
+          <i class="bi bi-bag-plus"></i>
           <span>Keranjang</span>
         </a>
       </li><!-- End keranjang Page Nav -->
@@ -164,22 +185,22 @@
         <!-- Left side columns -->
         <div class="col-lg-12">
           <div class="row">
-              <!-- Welcome Card -->
-              <div class="col-12">
-                <div class="card info-card cfustomers-card shadow-sm w-100">
-                  <div class="card-body text-center py-4">
-                    <h4 class="mb-2">Selamat datang di Website Admin
-                      <strong>inverse!</strong>
-                    </h4>
-                    <p class="text-muted small mb-0">Kelola produk, transaksi, dan pelanggan dengan mudah</p>
-                    </div>
-                  </div>
-
+            <!-- Welcome Card -->
+            <div class="col-12">
+              <div class="card info-card cfustomers-card shadow-sm w-100">
+                <div class="card-body text-center py-4">
+                  <h4 class="mb-2">Selamat datang di Website Admin
+                    <strong>inverse!</strong>
+                  </h4>
+                  <p class="text-muted small mb-0">Kelola produk, transaksi, dan pelanggan dengan mudah</p>
                 </div>
               </div>
 
-            </div><!-- End Welcome Card -->
-            
+            </div>
+          </div>
+
+        </div><!-- End Welcome Card -->
+
         <!-- Left side columns -->
         <div class="col-lg-8">
           <div class="row">
@@ -230,16 +251,16 @@
               <div class="card">
 
 
+              </div>
+            </div><!-- End Left side columns -->
+
+            <!-- Right side columns -->
+            <div class="col-lg-4">
+
+
+            </div><!-- End Right side columns -->
+
           </div>
-        </div><!-- End Left side columns -->
-
-        <!-- Right side columns -->
-        <div class="col-lg-4">
-
-
-        </div><!-- End Right side columns -->
-
-      </div>
     </section>
 
   </main><!-- End #main -->
@@ -255,8 +276,8 @@
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
       Designed by <a href="https://www.instagram.com/mirzaaa.i/"
-       target="_blank">mirzaaa</a>
-    
+        target="_blank">mirzaaa</a>
+
     </div>
   </footer><!-- End Footer -->
 

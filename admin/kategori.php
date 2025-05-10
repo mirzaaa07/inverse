@@ -1,3 +1,23 @@
+<?php
+session_start(); // Memulai sesi
+include "koneksi.php"; // Menyertakan file koneksi database
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+  header("Location: login.php"); // Arahkan ke halaman login jika belum login
+  exit; // Menghentikan script
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+  echo "<script>
+        alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+        window.location.href='login.php'; // Arahkan ke halaman login
+    </script>";
+  exit; // Menghentikan script
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +98,7 @@
 
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
-                  <h6>mirzaaa</h6>
+                  <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars(($_SESSION['username'])) : 'Guest'; ?></h6>
                   <span>Admin</span>
                 </li>
                 <li>
@@ -89,7 +109,8 @@
                 </li>
 
                 <li>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
+                  <a class="dropdown-item d-flex align-items-center" href="logout.php">
+                    <i class="bi bi-box-arrow-in-right"></i>
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Sign Out</span>
                   </a>
@@ -110,54 +131,53 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="index.php">
-          <i class="bi bi-house-door"></i>
+          <i class="bi bi-grid"></i>
           <span>Beranda</span>
         </a>
-        <!-- End Beranda Nav -->
-      </li>
+      </li><!-- End Beranda Nav -->
+
+
       <li class="nav-item">
         <a class="nav-link" href="kategori.php">
           <i class="bi bi-alexa"></i>
           <span>Kategori Produk</span>
         </a>
-      </li>
-      <!-- End Kategori Produk Page Nav -->
-
+      </li><!-- End kategori Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
           <i class="bi bi-bag"></i>
           <span>Produk</span>
         </a>
-      </li><!-- End Produk Page Nav -->
+      </li><!-- End produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="keranjang.php">
           <i class="bi bi-bag-plus"></i>
           <span>Keranjang</span>
         </a>
-      </li><!-- End Contact Page Nav -->
+      </li><!-- End keranjang Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="transaksi.php">
           <i class="bi bi-card-list"></i>
           <span>Transaksi</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li><!-- End transaksi Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="laporan.php">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Laporan</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li><!-- End laporan Page Nav -->
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="pengguna.php">
-          <i class="bi bi-box-arrow-in-right"></i>
+          <i class="bi bi-dash-circle"></i>
           <span>Pengguna</span>
         </a>
-      </li><!-- End Login Page Nav -->
-
+      </li><!-- End pengguna Page Nav -->
 
     </ul>
 

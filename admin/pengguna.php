@@ -1,11 +1,11 @@
 <?php
-session_start(); // Memulai sesi
-include "koneksi.php"; // Menyertakan file koneksi database
+session_start();
+include "koneksi.php"; 
 
 // Cek apakah sudah login
 if (!isset($_SESSION["login"])) {
-    header("Location: login.php"); // Arahkan ke halaman login jika belum login
-    exit; // Menghentikan script
+    header("Location: login.php");
+    exit;
 }
 
 // Cek apakah status tersedia dan pastikan user adalah admin
@@ -14,7 +14,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
         alert('Akses ditolak! Halaman ini hanya untuk Admin.');
         window.location.href='login.php'; // Arahkan ke halaman login
     </script>";
-    exit; // Menghentikan script
+    exit;
 }
 ?>
 
@@ -25,7 +25,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - inverse</title>
+    <title>Produk - inverse Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -64,8 +64,8 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
         </div><!-- End Logo -->
 
         <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="GET" action="">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+            <form class="search-form d-flex align-items-center" method="POST" action="">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword" value="<?php echo isset($_POST['query']) ? htmlspecialchars($_POST['query']) : ''; ?>">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
         </div><!-- End Search Bar -->
@@ -83,7 +83,6 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <img src="assets/img/meme.jpg" alt="Profile" class="rounded-circle">
-                        <!-- profile-img.jpg diganti dengan foto kalian -->
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -114,72 +113,72 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
     </header><!-- End Header -->
 
-    <aside id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
 
-        <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
-                    <span>Beranda</span>
-                </a>
-            </li><!-- End Beranda Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.php">
+          <i class="bi bi-grid"></i>
+          <span>Beranda</span>
+        </a>
+      </li><!-- End Beranda Nav -->
 
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-alexa"></i>
-                    <span>Kategori Produk</span>
-                </a>
-            </li><!-- End kategori Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="kategori.php">
+          <i class="bi bi-alexa"></i>
+          <span>Kategori Produk</span>
+        </a>
+      </li><!-- End kategori Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="produk.php">
-                    <i class="bi bi-bag"></i>
-                    <span>Produk</span>
-                </a>
-            </li><!-- End produk Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="produk.php">
+          <i class="bi bi-bag"></i>
+          <span>Produk</span>
+        </a>
+      </li><!-- End produk Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-bag-plus"></i>
-                    <span>Keranjang</span>
-                </a>
-            </li><!-- End keranjang Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="keranjang.php">
+          <i class="bi bi-bag-plus"></i>
+          <span>Keranjang</span>
+        </a>
+      </li><!-- End keranjang Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-card-list"></i>
-                    <span>Transaksi</span>
-                </a>
-            </li><!-- End transaksi Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="transaksi.php">
+          <i class="bi bi-card-list"></i>
+          <span>Transaksi</span>
+        </a>
+      </li><!-- End transaksi Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Laporan</span>
-                </a>
-            </li><!-- End laporan Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="laporan.php">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Laporan</span>
+        </a>
+      </li><!-- End laporan Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pengguna.php">
-                    <i class="bi bi-dash-circle"></i>
-                    <span>Pengguna</span>
-                </a>
-            </li><!-- End pengguna Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link" href="pengguna.php">
+          <i class="bi bi-dash-circle"></i>
+          <span>Pengguna</span>
+        </a>
+      </li><!-- End pengguna Page Nav -->
 
-        </ul>
+    </ul>
 
-    </aside><!-- End Sidebar-->
+  </aside><!-- End Sidebar-->
 
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Produk</h1>
+            <h1>Pengguna</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-                    <li class="breadcrumb-item active">Produk</li>
+                    <li class="breadcrumb-item active">Pengguna</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -188,7 +187,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="t_produk.php" class="btn btn-primary mt-3">
+                        <a href="t_pengguna.php" class="btn btn-primary mt-3">
                             <i class="bi bi-plus-lg"></i> Tambah Data
                         </a>
                     </div>
@@ -199,7 +198,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
         <section class="section">
             <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-6">
 
                     <div class="card">
                         <div class="card-body">
@@ -209,11 +208,8 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Nama Produk</th>
-                                        <th scope="col">Harga</th>
-                                        <th scope="col">Stok</th>
-                                        <th scope="col">Nama Kategori</th>
-                                        <th scope="col">Gambar</th>
+                                        <th scope="col">Nama Pengguna</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
@@ -222,14 +218,15 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     include "koneksi.php";
                                     $no = 1;
 
-                                    // Ambil keyword pencarian dari GET
-                                    $query = isset($_GET['query']) ? mysqli_real_escape_string($koneksi, $_GET['query']) : '';
+                                    // Cek apakah ada query pencarian
+                                    $query = isset($_POST['query']) ? mysqli_real_escape_string($koneksi, $_POST['query']) : '';
 
-                                    // Tambahkan WHERE jia query tidak kososng
-                                    $sql_query = "SELECT tb_produk.*, tb_kategori.nm_kategori FROM tb_produk LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori";
+                                    //query dasar
+                                    $sql_query = "SELECT id_user, username, status FROM tb_user";
 
+                                    // tambahkan pencarian jika input kosong
                                     if (!empty($query)) {
-                                        $sql_query .= "WHERE tb_produk.nm_produk LIKE '%$query%' OR tb_kategori.nm_kategori LIKE '%$query%' OR tb_produk.desk LIKE '%$query%'";
+                                        $sql_query .= " WHERE username LIKE '%$query%'";
                                     }
 
                                     $sql = mysqli_query($koneksi, $sql_query);
@@ -237,26 +234,13 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     if (mysqli_num_rows($sql) > 0) {
                                         while ($hasil = mysqli_fetch_array($sql)) {
                                     ?>
-
                                             <tr>
                                                 <td><?php echo $no++; ?></td>
-                                                <td><?php echo $hasil['nm_produk']; ?></td>
-                                                <td>Rp <?php echo number_format($hasil['harga'], 0, ',', '.'); ?></td>
-                                                <td><?php echo $hasil['stok']; ?></td>
-                                                <td><?php echo $hasil['desk']; ?></td>
-                                                <td><?php echo $hasil['nm_kategori']; ?></td>
+                                                <td><?php echo $hasil['username']; ?></td>
+                                                <td><?php echo $hasil['status']; ?></td>
                                                 <td>
-                                                    <?php if (!empty($hasil['gambar'])) { ?>
-                                                        <img src="produk_img/<?php echo $hasil['gambar']; ?>" width="100">
-                                                    <?php } else { ?>
-                                                        Tidak ada gambar
-                                                    <?php } ?>
-                                                </td>
-                                                <td>
-                                                    <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </a>
-                                                    <a href="h_produk.php?id=<<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                                                    <a href="h_pengguna.php?id=<?php echo $hasil['id_user']; ?>"
+                                                        class="btn btn-danger" onclick="return confirm('Yakin ingin mengubah data ini?')">
                                                         <i class="bi bi-trash"></i>
                                                     </a>
                                                 </td>
@@ -266,12 +250,11 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     } else {
                                         ?>
                                         <tr>
-                                            <td colspan="8" class="text-center">Data tidak ditemukan</td>
+                                            <td colspan="4" class="text-center">Tidak ada data ditemukan</td>
                                         </tr>
                                     <?php
                                     }
                                     ?>
-
                                 </tbody>
                             </table>
                             <!-- End Table with stripped rows -->
@@ -290,7 +273,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             &copy; Copyright <strong><span>inverse</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href=https://www.instagram.com/mirzaaa.i/"
+            Designed by <a href="https://www.instagram.com/mirzaaa.i/"
                 target="_blank">mirzaaa</a>
         </div>
     </footer><!-- End Footer -->

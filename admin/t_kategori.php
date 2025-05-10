@@ -1,4 +1,24 @@
 <?php
+session_start(); // Memulai sesi
+include "koneksi.php"; // Menyertakan file koneksi database
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+  header("Location: login.php"); // Arahkan ke halaman login jika belum login
+  exit; // Menghentikan script
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+  echo "<script>
+        alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+        window.location.href='login.php'; // Arahkan ke halaman login
+    </script>";
+  exit; // Menghentikan script
+}
+?>
+
+<?php
 include "koneksi.php";
 
 if (isset($_POST['simpan'])) {
@@ -87,7 +107,7 @@ if (isset($_POST['simpan'])) {
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>mirzaaa</h6>
+              <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars(($_SESSION['username'])) : 'Guest'; ?></h6>
               <span>Admin</span>
             </li>
             <li>
@@ -97,7 +117,8 @@ if (isset($_POST['simpan'])) {
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="#">
+          <a class="dropdown-item d-flex align-items-center" href="logout.php">
+            <i class="bi bi-box-arrow-in-right"></i>
             <i class="bi bi-box-arrow-right"></i>
             <span>Sign Out</span>
           </a>
@@ -117,7 +138,7 @@ if (isset($_POST['simpan'])) {
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Beranda</span>
         </a>
@@ -125,7 +146,7 @@ if (isset($_POST['simpan'])) {
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="kategori.php">
+        <a class="nav-link" href="kategori.php">
           <i class="bi bi-alexa"></i>
           <span>Kategori Produk</span>
         </a>
@@ -173,7 +194,7 @@ if (isset($_POST['simpan'])) {
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Beranda</h1>
+      <h1>Kategori Produk</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
