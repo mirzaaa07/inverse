@@ -119,7 +119,7 @@
                                 }
                                 ?>
 
-                                <a href="cart.php" id="cartLink" style="position: relative; display: inline-block;">
+                                <a href="detail_produk.php" id="cartLink" style="position: relative; display: inline-block;">
                                     <i class="fas fa-cart-plus" style="font-size: 16px;"></i>
                                     <span class="cart-badge"><?= $jumlah_item ?></span>
                                 </a>

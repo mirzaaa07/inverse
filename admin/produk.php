@@ -100,7 +100,6 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
                         <li>
                             <a class="dropdown-item d-flex align-items-center" href="logout.php">
-                                <i class="bi bi-box-arrow-in-right"></i>
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -212,6 +211,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                         <th scope="col">Nama Produk</th>
                                         <th scope="col">Harga</th>
                                         <th scope="col">Stok</th>
+                                        <th scope="col">Deskripsi</th>
                                         <th scope="col">Nama Kategori</th>
                                         <th scope="col">Gambar</th>
                                         <th scope="col">Aksi</th>
@@ -256,7 +256,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                                     <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
-                                                    <a href="h_produk.php?id=<<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                                                    <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
                                                         <i class="bi bi-trash"></i>
                                                     </a>
                                                 </td>

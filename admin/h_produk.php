@@ -1,8 +1,8 @@
 <?php
 include "koneksi.php";
 
-if (isset($_GET['id_produk'])) {
-    $id_produk = $_GET['id_produk'];
+if (isset($_GET['id'])) {
+    $id_produk = $_GET['id'];
 
     // Cek apakah produk memiliki gambar
     $query = mysqli_query($koneksi, "SELECT gambar FROM tb_produk WHERE id_produk ='$id_produk'");
