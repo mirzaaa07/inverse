@@ -132,7 +132,7 @@
                     <?php
                     include 'admin/koneksi.php'; //pastikan koneksi ke database sudah benar
 
-                    if (isset($_SESSION['id_user'])) {
+                    if (isset($_SESSION['id'])) {
                         echo "<script>alert('Silahkan login terlebih dahulu!'); window.location='login.php';</script>";
                         exit;
                     }
@@ -216,13 +216,13 @@
                                 ?>
 
                                 <tr class="bottom_button">
-                                    <td> colspan="5">
+                                    <td colspan="5">
                                         <button type="submit" class="btn_1">Update Cart</button>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td> colspan="3"></td>
+                                    <td colspan="3"></td>
                                     <td>
                                         <h5>Subtotal</h5>
                                     </td>
@@ -231,7 +231,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> colspan="3"></td>
+                                    <td colspan="3"></td>
                                     <td>
                                         <h5>Diskon</h5>
                                     </td>
@@ -240,7 +240,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td> colspan="3"></td>
+                                    <td colspan="3"></td>
                                     <td>
                                         <h5>Total Bayar</h5>
                                     </td>
