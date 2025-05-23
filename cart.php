@@ -132,12 +132,12 @@
                     <?php
                     include 'admin/koneksi.php'; //pastikan koneksi ke database sudah benar
 
-                    if (isset($_SESSION['id'])) {
+                    if (!isset($_SESSION['id_user'])) {
                         echo "<script>alert('Silahkan login terlebih dahulu!'); window.location='login.php';</script>";
                         exit;
                     }
 
-                    $id_user = $_SESSION['id_user'];// Ambil user id dari sesi
+                    $id_user = $_SESSION['id_user']; // Ambil user id dari sesi
                     $query = "SELECT p.id_pesanan, pr.nm_produk, pr.harga, p.qty, (pr.harga * p.qty) AS total, pr.gambar
                               FROM tb_pesanan p
                               JOIN tb_produk pr ON p.id_produk = pr.id_produk

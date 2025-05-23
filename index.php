@@ -51,7 +51,7 @@
                                         Shop
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="category.html"> shop category</a>
+                                        <a class="dropdown-item" href="belanja.php"> Belanja</a>
                                         <a class="dropdown-item" href="single-product.html">product details</a>
                                         
                                     </div>
