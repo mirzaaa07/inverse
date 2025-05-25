@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>inverse</title>
+  <title>Belanja - inverse</title>
   <link rel="icon" href="img/aaa.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/animate.css">
   <!-- owl carousel CSS -->
   <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/lightslider.min.css">
+  <!-- nice select CSS -->
+  <link rel="stylesheet" href="css/nice-select.css">
   <!-- font awesome CSS -->
   <link rel="stylesheet" href="css/all.css">
   <!-- flaticon CSS -->
@@ -21,8 +22,55 @@
   <link rel="stylesheet" href="css/themify-icons.css">
   <!-- font awesome CSS -->
   <link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- swiper CSS -->
+  <link rel="stylesheet" href="css/slick.css">
+  <link rel="stylesheet" href="css/price_rangs.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .single_product_item {
+      text-align: center;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .product_img_wrapper {
+      width: 100%;
+      height: 200px;
+      /* Sesuaikan tinggi gambar */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .product_img_wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Crop gambar agar tetap proporsional */
+      border-radius: 10px;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -8px;
+      background: #f72a74;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 1;
+      min-width: 16px;
+      text-align: center;
+      z-index: 10;
+    }
+  </style>
 </head>
 
 <body>

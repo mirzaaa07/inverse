@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_user'])) {
 
 if (isset($_GET['id_pesanan'])) {
     $id_pesanan = $_GET['id_pesanan'];
-    $query = "DELETE FROM tb_pesanan WEHRE id_pesanan = '$id_pesanan'";
+    $query = "DELETE FROM tb_pesanan WHERE id_pesanan = '$id_pesanan'";
     $result = mysqli_query($koneksi, $query);
 
     if ($result) {
