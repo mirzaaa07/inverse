@@ -233,11 +233,12 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
         </section>
 
         <script>
-            function updateTipelaporan() {
+            function updateTipeLaporan() {
                 const laporanSelect = document.getElementById("laporanSelect").value;
-                const tipelaporanSelect = document.getElementById("tipelaporanSelect");
+                const tipelaporanSelect = document.getElementById("tipeLaporanSelect");
 
                 tipelaporanSelect.innerHTML = "";
+
                 if (laporanSelect === "produk") {
                     let optional1 = document.createElement("option");
                     optional1.value = "all";
@@ -252,7 +253,6 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                             tipelaporanSelect.appendChild(option<?php echo $row['id_kategori']; ?>);
                         <?php endwhile; ?>
                     <?php endif; ?>
-                    
                 } else if (laporanSelect === "transaksi") {
                     let optional1 = document.createElement("option");
                     optional1.value = "all";
@@ -260,6 +260,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                     tipelaporanSelect.appendChild(optional1);
                 }
             }
+
 
             document.getElementById("btnCetak").addEventListener("click", function() {
                 const laporan = document.getElementById("laporanSelect").value;
