@@ -234,57 +234,58 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
         <script>
             function updateTipeLaporan() {
-                const laporanSelect = document.getElementById("laporanSelect").value;
-                const tipelaporanSelect = document.getElementById("tipeLaporanSelect");
-
-                tipelaporanSelect.innerHTML = "";
+                const laporanSelect = document.getElementById('laporanSelect').value;
+                const tipeLaporanSelect = document.getElementById('tipeLaporanSelect');
+                tipeLaporanSelect.innerHTML = ''; // Kosongkan opsi sebelumnya
 
                 if (laporanSelect === "produk") {
-                    let optional1 = document.createElement("option");
-                    optional1.value = "all";
-                    optional1.textContent = "All";
-                    tipelaporanSelect.appendChild(optional1);
+                    let optionAll = document.createElement('option');
+                    optionAll.value = "all";
+                    optionAll.textContent = "All";
+                    tipeLaporanSelect.appendChild(optionAll);
 
                     <?php if ($resultKategori->num_rows > 0) : ?>
                         <?php while ($row = $resultKategori->fetch_assoc()) : ?>
-                            let option<?php echo $row['id_kategori']; ?> = document.createElement("option");
+                            let option<?php echo $row['id_kategori']; ?> = document.createElement('option');
                             option<?php echo $row['id_kategori']; ?>.value = "<?php echo $row['id_kategori']; ?>";
-                            option<?php echo $row['id_kategori']; ?>.textContent = "<?php echo $row['nm_kategori']; ?>";
-                            tipelaporanSelect.appendChild(option<?php echo $row['id_kategori']; ?>);
+                            option<?php echo $row['id_kategori']; ?>.textContent = "<?php echo htmlspecialchars($row['nm_kategori']); ?>";
+                            tipeLaporanSelect.appendChild(option<?php echo $row['id_kategori']; ?>);
                         <?php endwhile; ?>
                     <?php endif; ?>
                 } else if (laporanSelect === "transaksi") {
-                    let optional1 = document.createElement("option");
-                    optional1.value = "all";
-                    optional1.textContent = "All";
-                    tipelaporanSelect.appendChild(optional1);
+                    let optionAll = document.createElement('option');
+                    optionAll.value = "all";
+                    optionAll.textContent = "All";
+                    tipeLaporanSelect.appendChild(optionAll);
+
+
                 }
             }
 
-
-            document.getElementById("btnCetak").addEventListener("click", function() {
-                const laporan = document.getElementById("laporanSelect").value;
-                const tipe = document.getElementById("tipelaporanSelect").value;
+            document.getElementById('btnCetak').addEventListener('click', function() {
+                const laporan = document.getElementById('laporanSelect').value;
+                const tipe = document.getElementById('tipeLaporanSelect').value;
 
                 if (!laporan || !tipe) {
-                    alert("Silakan pilih jenis laporan dan tipe laporan terlebih dahulu.");
+                    alert('Silakan pilih jenis laporan dan tipe laporan terlebih dahulu.');
                     return;
                 }
 
-                let url = "";
+                let url = '';
                 if (laporan === "produk") {
                     if (tipe === "all") {
-                        url = "pdf_produk_all.php";
+                        url = 'pdf_produk_all.php';
                     } else {
-                        url = "pdf_produk_kategori.php?id_kategori=" + tipe;
+                        url = 'pdf_produk_kategori.php?id_kategori=' + tipe;
                     }
                 } else if (laporan === "transaksi") {
-                    url = "pdf_transaksi.php";
+                    url = 'pdf_transaksi.php';
                 }
+                window.open(url, '_blank');
 
-                window.open(url, "_blank");
             });
         </script>
+
 
     </main><!-- End #main -->
 
