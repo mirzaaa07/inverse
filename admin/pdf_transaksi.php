@@ -63,31 +63,35 @@ $html = '<html>
     <h1 align="center">LAPORAN TRANSAKSI PENJUALAN</h1>
 
     <table align="center" cellspacing="0">
-        <thead>
-            <tr>
-                <th>ID Jual</th>
-                <th>Tanggal</th>
-                <th>Username</th>
-                <th>Total</th>
-                <th>Diskon</th>
-            </tr>
-        </thead>';
+    <thead>
+    <tr>
+        <th>ID Jual</th>
+        <th>Tanggal</th>
+        <th>Username</th>
+        <th>Total</th>
+        <th>Diskon</th>
+    </tr>
+    </thead>';
 
 foreach ($data as $row) {
     $html .= '<tbody>
-            <tr align="center">
-                <td>' . $row["id_jual"] . '</td>
-                <td>' . $row["tgl_jual"] . '</td>
-                <td>' . $row["username"] . '</td>
-                <td>Rp ' . number_format($row["total"], 0, ',', '.') . '</td>
-                <td>Rp ' . number_format($row["diskon"], 0, ',', '.') . '</td>
-            </tr>';
+        <tr align="center">
+            <td>' . $row["id_jual"] . '</td>
+            <td>' . $row["tgl_jual"] . '</td>
+            <td>' . $row["username"] . '</td>
+            <td>Rp ' . number_format($row["total"], 0, ',', '.') . '</td>
+            <td>Rp ' . number_format($row["diskon"], 0, ',', '.') . '</td>
+        </tr>
+        </tbody>';
 }
 
-$html .= '</tbody>
-    </table>
-</body>
-</html>';
+$html .= '</table>
+    </body>
+    </html>';
 
+//Write some HTML code:
 $mpdf->WriteHTML($html);
+
+//Output a PDF file directly to the browser
+
 $mpdf->Output();

@@ -25,7 +25,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Transaksi - inverse</title>
+    <title>Transaksi - inverse Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -164,7 +164,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
     </aside><!-- End Sidebar-->
 
-    <main id="main" class="main">
+     <main id="main" class="main">
 
         <div class="pagetitle">
             <h1>Transaksi</h1>

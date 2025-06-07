@@ -81,9 +81,7 @@
       autoplay: true,
       autoplayHoverPause: true,
       autoplayTimeout: 5000,
-      nav: true,
-      navText: ["next", "previous"],
-      smartSpeed: 1000,
+      nav: false,
       responsive: {
         0: {
           margin: 15,
@@ -97,7 +95,7 @@
         },
         768: {
           margin: 30,
-          nav: true,
+          nav: false,
           items: 1
         }
       }
@@ -145,9 +143,7 @@
     autoplay: true,
     autoplayHoverPause: true,
     autoplayTimeout: 5000,
-    nav: true,
-    navText: ["next", "previous"],
-    smartSpeed: 1000,
+    nav: false,
     responsive: {
       0: {
         nav: false
@@ -156,7 +152,7 @@
         nav: false
       },
       768: {
-        nav: true
+        nav: false
       }
     }
   });

@@ -25,7 +25,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - inverse</title>
+    <title>Produk - inverse Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -229,7 +229,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     $sql_query = "SELECT tb_produk.*, tb_kategori.nm_kategori FROM tb_produk LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori";
 
                                     if (!empty($query)) {
-                                        $sql_query .= "WHERE tb_produk.nm_produk LIKE '%$query%' OR tb_kategori.nm_kategori LIKE '%$query%' OR tb_produk.desk LIKE '%$query%'";
+                                        $sql_query .= " WHERE tb_produk.nm_produk LIKE '%$query%' OR tb_kategori.nm_kategori LIKE '%$query%' OR tb_produk.desk LIKE '%$query%'";
                                     }
 
                                     $sql = mysqli_query($koneksi, $sql_query);

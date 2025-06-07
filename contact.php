@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Beranda - inverse</title>
+    <title>Hubungi Kami - inverse</title>
     <link rel="icon" href="img/aaa.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -42,31 +42,27 @@
         }
     </style>
     <style>
-        .btn_2 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 12px 24px;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 6px;
-            text-decoration: none;
-            width: 100%;
-            max-width: 250px;
-            height: 50px;
-            /* atau sesuaikan tinggi sesuai desain */
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
         }
 
-        /* Tambahan opsional untuk menghapus pengaruh input-group-text */
-        .input-group-text {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
 
 <body>
+    <!--::header part start::-->
     <!--::header part start::-->
     <header class="main_menu home_menu">
         <div class="container">
@@ -142,151 +138,106 @@
     </header>
     <!-- Header part end-->
 
-    <!-- banner part start-->
-    <section class="banner_part">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="banner_slider owl-carousel">
-                        <div class="single_banner_slider">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-8">
-                                    <div class="banner_text">
-                                        <div class="banner_text_iner">
-                                            <h1>Sofa Elegan </h1>
-                                            <p>Sofa berkualitas tinggi dengan desain elegan yang akan membuat rumah anda menjadi lebih indah</p>
-                                            <a href="#" class="btn_2">LIHAT PRODUK</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_banner_slider">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-8">
-                                    <div class="banner_text">
-                                        <div class="banner_text_iner">
-                                            <h1>Sofa Elegan</h1>
-                                            <p>Hadirkan kenyamanan dan keanggunan di ruang tamu Anda dengan Sofa
-                                                Sudut Elegan ini. Dirancang dalam gaya klasik modern, sofa ini dibalut
-                                                dengan kain berwarna abu-abu netral yang mudah dipadukan dengan berbagai tema interior.
-                                                Sofa ini tidak hanya nyaman namun juga menjadi pusat perhatian dalam ruangan.</p>
-                                            <a href="#" class="btn_2">LIHAT KOLEKSI</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single_banner_slider">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-8">
-                                    <div class="banner_text">
-                                        <div class="banner_text_iner">
-                                            <h1>Sofa Elegan</h1>
-                                            <p>Ciptakan suasana ruang tamu yang hangat dan berkelas
-                                                 dengan Set Sofa Minimalis Modern ini. Set ini dirancang dengan garis tegas
-                                                  dan bentuk yang clean untuk menciptakan tampilan kontemporer yang tetap nyaman dan fungsional.</p>
-                                            <a href="#" class="btn_2">BELANJA SEKARANG</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="banner_img d-none d-lg-block">
-                                    <img src="img/banner_img.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- banner part start-->
-
-    <!-- product_list start-->
-    <section class="product_list section_padding">
+    <!--================Home Banner Area =================-->
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section_tittle text-center">
-                        <h2>Temukan <span>Gaya Rumahmu</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="product_list_slider owl-carousel">
-                        <div class="single_product_list_slider">
-                            <div class="row align-items-center justify-content-between">
-                                <?php
-                                include 'admin/koneksi.php';
-                                // Ambil data produk dari database
-                                $query = "SELECT id_produk, nm_produk, harga, gambar FROM tb_produk LIMIT 8";
-                                $result = mysqli_query($koneksi, $query);
-
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row['id_produk'];
-                                    $nama = $row['nm_produk'];
-                                    $harga = number_format($row['harga'], 0, ',', '.');
-                                    $gambar = $row['gambar'];
-                                ?>
-                                    <div class="col-lg-3 col-sm-6">
-                                        <div class="single_product_item">
-                                            <img src="admin/produk_img/<?= htmlspecialchars($gambar) ?>" alt="<?= htmlspecialchars($nama) ?>"
-                                                style="width: 265px; height: 250px; object-fit: cover;">
-                                            <div class="single_product_text">
-                                                <h4><?= htmlspecialchars($nama) ?></h4>
-                                                <h3>Rp. <?= $harga ?></h3>
-                                                <a href="detail_produk.php?id=<?= $id ?>" class="add_cart">+Keranjang</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- product_list part start-->
-
-    <!-- awesome_shop start-->
-    <section class="our_offer section_padding">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-6 col-md-6">
-                    <div class="offer_img">
-                        <img src="img/offer_img.png" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="offer_text">
-                        <h2>Semua Produk Diskon 60%
-                            Hanya Minggu Ini!</h2>
-                        <div class="date_countdown">
-                            <div id="timer">
-                                <div id="days" class="date"></div>
-                                <div id="hours" class="date"></div>
-                                <div id="minutes" class="date"></div>
-                                <div id="seconds" class="date"></div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">SERBU SEKARANG!</a>
-                            </div>
+                <div class="col-lg-8">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Hubungi Kami</h2>
+                            <p>Beranda <span>-</span> Hubungi Kami</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- awesome_shop part start-->
+    <!-- breadcrumb start-->
+
+    <!-- ================ contact section start ================= -->
+    <section class="contact-section padding_top">
+        <div class="container">
+            <div class="d-none d-sm-block mb-5 pb-4">
+                <div id="map"></div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.
+                        973730217078!2d111.58744367410984!3d-7.
+                        1290351699173575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+                        1!3m3!1m2!1s0x2e776411abeabb93%3A0x3ccba806cf9ef497!2sSTT%20Ronggolawe%20
+                        Cepu!5e0!3m2!1sid!2sid!4v1743766946322!5m2!1sid!2sid" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Menghubungi</h2>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
+                        novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+
+                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Kirim Pesan'"
+                                        placeholder='Kirim Pesan'></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Masukkan Nama Anda'" placeholder='Masukkan Nama Anda'>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Masukkan Email Anda'" placeholder='Masukkan Email Anda'>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Masukkan Subjek'" placeholder='Masukkan Subjek'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <a href="#" class="btn_3 button-contactForm">Kirim Pesan</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>Cepu, Jawa Tengah</h3>
+                            <p>Mentul, Karangboyo</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>+62 888-0366-7649</h3>
+                            <p>Hubungi via WhatsApp (Senin - Jumat, 9 Pagi - 5 Sore)</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3>inverse@gmail.com</h3>
+                            <p>Kirimkan pertanyaan Anda disini!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
 
     <!--::footer_part start::-->
     <footer class="footer_part">
@@ -322,6 +273,7 @@
     <!--::footer_part end::-->
 
     <!-- jquery plugins here-->
+    <!-- jquery -->
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->
     <script src="js/popper.min.js"></script>

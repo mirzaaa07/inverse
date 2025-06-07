@@ -76,38 +76,40 @@ $html = '<html>
     <h1 align="center">LAPORAN PRODUK BERDASARKAN KATEGORI</h1>
 
     <table align="center" cellspacing="0">
-        <thead>
-            <tr>
-                <th>ID Produk</th>
-                <th>Gambar</th>
-                <th>Nama Produk</th>
-                <th>Kategori</th>
-                <th>Deskripsi</th>
-                <th>Harga</th>
-                <th>Stok</th>
-            </tr>
-        </thead>'; // Penutup thead dan pembuka tbody akan digabung di loop
+    <thead>
+    <tr>
+        <th>ID Produk</th>
+        <th>Gambar</th>
+        <th>Nama Produk</th>
+        <th>Kategori</th>
+        <th>Deskripsi</th>
+        <th>Harga</th>
+        <th>Stok</th>
+    </tr>
+    </thead>';
 
 foreach ($data as $row) {
-    $formatted_harga = "Rp " . number_format($row["harga"], 0, ',', '.'); // Format harga
-
+    $formatted_harga = "Rp " . number_format($row["harga"], 0, ',', '.'); // Format harga Rupiah
     $html .= '<tbody>
-            <tr align="center">
-                <td>' . $row["id_produk"] . '</td>
-                <td><img src="produk_img/' . $row["gambar"] . '" alt="Gambar"></td>
-                <td>' . $row["nm_produk"] . '</td>
-                <td>' . $row["nm_kategori"] . '</td>
-                <td>' . $row["desk"] . '</td>
-                <td>' . $formatted_harga . '</td>
-                <td>' . $row["stok"] . '</td>
-            </tr>';
+        <tr align="center">
+            <td>' . $row["id_produk"] . '</td>
+            <td><img src="produk_img/' . $row["gambar"] . '" alt="Gambar"></td>
+            <td>' . $row["nm_produk"] . '</td>
+            <td>' . $row["nm_kategori"] . '</td>
+            <td>' . $row["desk"] . '</td>
+            <td>' . $formatted_harga . '</td>
+            <td>' . $row["stok"] . '</td>
+        </tr>
+        </tbody>';
 }
 
-$html .= '</tbody>
-    </table>
-</body>
-</html>';
+$html .= '</table>
+    </body>
+    </html>';
 
-// Tampilkan PDF
+//Write some HTML code:
 $mpdf->WriteHTML($html);
+
+//Output a PDF file directly to the browser
+
 $mpdf->Output();
