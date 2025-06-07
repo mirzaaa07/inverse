@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         .cart-badge {
             position: absolute;
@@ -220,7 +222,7 @@
                         </div>
                     </div>
                     <div class="media contact-info">
-                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <span class="contact-info__icon"><i class="fab fa-whatsapp"></i></span>
                         <div class="media-body">
                             <h3>+62 888-0366-7649</h3>
                             <p>Hubungi via WhatsApp (Senin - Jumat, 9 Pagi - 5 Sore)</p>

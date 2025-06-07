@@ -181,7 +181,7 @@ if (isset($_POST['simpan'])) {
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pengguna.php">
-          <i class="bi bi-dash-circle"></i>
+          <i class="bi bi-file-earmark-text"></i>
           <span>Pengguna</span>
         </a>
       </li><!-- End pengguna Page Nav -->

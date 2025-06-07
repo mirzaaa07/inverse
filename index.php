@@ -155,7 +155,7 @@
                                         <div class="banner_text_iner">
                                             <h1>Sofa Elegan </h1>
                                             <p>Sofa berkualitas tinggi dengan desain elegan yang akan membuat rumah anda menjadi lebih indah</p>
-                                            <a href="#" class="btn_2">LIHAT PRODUK</a>
+                                            <a href="belanja.php" class="btn_2">LIHAT PRODUK</a>
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +174,7 @@
                                                 Sudut Elegan ini. Dirancang dalam gaya klasik modern, sofa ini dibalut
                                                 dengan kain berwarna abu-abu netral yang mudah dipadukan dengan berbagai tema interior.
                                                 Sofa ini tidak hanya nyaman namun juga menjadi pusat perhatian dalam ruangan.</p>
-                                            <a href="#" class="btn_2">LIHAT KOLEKSI</a>
+                                            <a href="belanja.php" class="btn_2">LIHAT KOLEKSI</a>
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +192,7 @@
                                             <p>Ciptakan suasana ruang tamu yang hangat dan berkelas
                                                  dengan Set Sofa Minimalis Modern ini. Set ini dirancang dengan garis tegas
                                                   dan bentuk yang clean untuk menciptakan tampilan kontemporer yang tetap nyaman dan fungsional.</p>
-                                            <a href="#" class="btn_2">BELANJA SEKARANG</a>
+                                            <a href="belanja.php" class="btn_2">BELANJA SEKARANG</a>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +278,7 @@
                         </div>
                         <div class="input-group">
                             <div class="input-group-append">
-                                <a href="#" class="input-group-text btn_2" id="basic-addon2">SERBU SEKARANG!</a>
+                                <a href="Belanja.php" class="input-group-text btn_2" id="basic-addon2">SERBU SEKARANG!</a>
                             </div>
                         </div>
                     </div>
