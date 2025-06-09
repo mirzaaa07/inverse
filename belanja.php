@@ -324,12 +324,11 @@
 
     <!-- product_list part end-->
 
-    <!--::footer_part start::-->
+   <!--::footer_part start::-->
     <footer class="footer_part">
         <div class="container">
             <div class="row justify-content-around">
             </div>
-
         </div>
         <div class="copyright_part">
             <div class="container">
@@ -339,15 +338,14 @@
                             <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;<script>
                                     document.write(new Date().getFullYear());
-                                </script> All rights reserved | inverse by mirzaaa
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </P>
+                                </script> All rights reserved | inverse by <a href="https://www.instagram.com/mirzaaa.i/" target="_blank">mirzaaa</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="footer_icon social_icon">
                             <ul class="list-unstyled">
-                                <li><a href="https://www.instagram.com/mirzaaa.i/" class="single_social_icon"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href=https://www.instagram.com/mirzaaa.i/" class="single_social_icon" target="_blank"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -356,7 +354,7 @@
         </div>
     </footer>
     <!--::footer_part end::-->
-
+    
     <!-- jquery plugins here-->
     <script src="js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->
