@@ -37,7 +37,7 @@ if (isset($_POST["login"])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>inverse</title>
+    <title>Login - inverse</title>
     <link rel="icon" href="img/aaa.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
